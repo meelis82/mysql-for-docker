@@ -16,7 +16,7 @@ if [ ! "$(ls -A ${DATA})" ]; then
 
   TIMEOUT=30
 
-  while ! mysqladmin -u root status > /dev/null 2>&1
+  while ! mysqladmin status > /dev/null 2>&1
   do
     TIMEOUT=$((${TIMEOUT} - 1))
 
@@ -27,10 +27,11 @@ if [ ! "$(ls -A ${DATA})" ]; then
     sleep 1
   done
 
-  mysql -u root -e "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';"
-  mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
-  mysql -u root -e "RENAME USER 'root' TO '${USER}';"
-  mysql -u root -e "CREATE DATABASE ${DEFAULT_DB};"
+  mysql -e "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';"
+  mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
+  mysql -e "RENAME USER 'root' TO '${USER}';"
+  mysql -e "CREATE DATABASE ${DEFAULT_DB};"
+  mysql -e "FLUSH PRIVILEGES;"
   
   mysqladmin -u "${USER}" -p"${PASSWORD}" shutdown
 fi
