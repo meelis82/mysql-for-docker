@@ -39,6 +39,7 @@ thread_stack = 256K
 myisam-recover-options = BACKUP
 binlog_expire_logs_seconds = 259200
 max_binlog_size = 100M
+default-authentication-plugin=mysql_native_password
 
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
