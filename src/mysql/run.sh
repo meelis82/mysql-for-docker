@@ -8,7 +8,10 @@ if [ ! "$(ls -A ${DATA})" ]; then
   USER="container"
   PASSWORD="container"
 
-  mysql_install_db --user="mysql" > /dev/null 2>&1
+  chown mysql.mysql -R /mysql
+  chmod 750 ${DATA}
+
+  mysqld --initialize --user="mysql" > /dev/null 2>&1
   mysqld_safe > /dev/null 2>&1 &
 
   TIMEOUT=30

@@ -24,4 +24,10 @@ class build::mysql::mysqlpackage {
   }
 
   Bash_exec { '/opt/mysql_install.sh': }
+
+  File { '/var/lib/mysql':
+    require => Bash_exec['/opt/mysql_install.sh'],
+    ensure => absent,
+    force => true
+  }
 }

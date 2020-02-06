@@ -37,10 +37,9 @@ skip-host-cache
 bind-address = 0.0.0.0
 thread_stack = 256K
 myisam-recover-options = BACKUP
-expire_logs_days = 3
+binlog_expire_logs_seconds = 259200
 max_binlog_size = 100M
 
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
-datadir         = /var/lib/mysql
 log-error       = /var/log/mysql/error.log
