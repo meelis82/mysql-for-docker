@@ -11,7 +11,7 @@ if [ ! "$(ls -A ${DATA})" ]; then
   chown mysql.mysql -R /mysql
   chmod 750 ${DATA}
 
-  mysqld --initialize --user="mysql" > /dev/null 2>&1
+  mysqld --initialize-insecure --user="mysql" > /dev/null 2>&1
   mysqld_safe > /dev/null 2>&1 &
 
   TIMEOUT=30
