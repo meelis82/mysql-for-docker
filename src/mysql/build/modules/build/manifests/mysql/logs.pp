@@ -13,4 +13,10 @@ class build::mysql::logs {
     target => '/dev/stderr',
     force => true
   }
+
+  file { '/var/run/mysqld':
+    ensure => 'directory',
+    owner  => 'mysql',
+    group => 'mysql'
+  }
 }

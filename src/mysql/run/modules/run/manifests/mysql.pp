@@ -11,7 +11,6 @@ class run::mysql {
     include run::mysql::log_queries_not_using_indexes
   }
 
-  include run::mysql::query_cache_type
   include run::mysql::max_allowed_packet
   include run::mysql::key_buffer_size
   include run::mysql::thread_cache_size

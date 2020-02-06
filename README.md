@@ -24,9 +24,6 @@ The MySQL root user is `container` and password is also `container`.
       -e SLOW_QUERY_LOG="Off" \
       -e LOG_QUERIES_NOT_USING_INDEXES="Off" \
       -e LONG_QUERY_TIME="1" \
-      -e QUERY_CACHE_TYPE="0" \
-      -e QUERY_CACHE_SIZE="1M" \
-      -e QUERY_CACHE_LIMIT="1M" \
       -e QUERY_CACHE_MIN_RES_UNIT="4K" \
       -e MAX_ALLOWED_PACKET="16M" \
       -e KEY_BUFFER_SIZE="16M" \

@@ -4,9 +4,9 @@ class build::mysql {
   require build::mysql::supervisor
   require build::mysql::logs
 
-  file { '/etc/mysql/my.cnf':
+  file { '/etc/mysql/mysql.conf.d/mysqld.cnf':
     ensure => present,
-    source => 'puppet:///modules/build/etc/mysql/my.cnf',
+    source => 'puppet:///modules/build/etc/mysql/mysqld.cnf',
     mode => "644"
   }
 
