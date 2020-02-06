@@ -1,4 +1,5 @@
 class build::mysql::logs {
+  require build::mysql::mysqlpackage
   require build::mysql::packages
 
   file { '/var/log/mysql/stdout.log':

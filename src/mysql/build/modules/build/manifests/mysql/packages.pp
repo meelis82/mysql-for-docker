@@ -1,6 +1,8 @@
 class build::mysql::packages {
   package {[
-      'mysql-server'
+      'lsb-release',
+      'gnupg',
+      'debconf'
     ]:
     ensure => present
   }
