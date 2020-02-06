@@ -27,7 +27,7 @@ if [ ! "$(ls -A ${DATA})" ]; then
     sleep 1
   done
 
-  mysql -e "CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '${PASSWORD}';"
+  mysql -e "CREATE USER 'root'@'%' IDENTIFIED WITH sha256_password BY '${PASSWORD}';"
   mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
   mysql -e "RENAME USER 'root' TO '${USER}';"
   mysql -e "CREATE DATABASE ${DEFAULT_DB};"
