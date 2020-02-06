@@ -30,4 +30,12 @@ class build::mysql::mysqlpackage {
     ensure => absent,
     force => true
   }
+
+  Bash_exec { 'rm -f /opt/mysql-apt-config_0.8.10-1_all.deb':
+    require => Bash_exec['/opt/mysql_install.sh'],
+  }
+
+  Bash_exec { 'rm -f /opt/mysql_install.sh':
+    require => Bash_exec['/opt/mysql_install.sh'],
+  }
 }
